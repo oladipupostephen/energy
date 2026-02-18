@@ -1,26 +1,47 @@
 @import "tailwindcss";
+/* @tailwind utilities; */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * SolarStore Global Styles
+ * ─────────────────────────────────────────────────────────────────────────────
+ * All design tokens (colors, fonts, animations, shadows) live in
+ * tailwind.config.ts. This file contains ONLY:
+ *   1. The three Tailwind directives above
+ *   2. Browser-native pseudo-element styles that Tailwind cannot target
+ *      (range input thumb, scrollbar, selection colour)
+ */
+
+/* ── Range input thumb — cannot be styled with Tailwind utilities ── */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #F5A623;
+  cursor: pointer;
+  box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.25);
+  transition: box-shadow 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 7px rgba(245, 166, 35, 0.2);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 9999px;
+  background: #F5A623;
+  cursor: pointer;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Text selection colour ── */
+::selection {
+  background-color: rgba(255, 202, 58, 0.35);
+  color: #050A18;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* ── Scrollbar (webkit) ── */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #0A1628; }
+::-webkit-scrollbar-thumb { background: #162B55; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #FFCA3A; }
