@@ -40,7 +40,7 @@ export default function CategoryShowcase() {
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
               {/* Dark overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050A18]/90 via-[#050A18]/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#050A18]/90 via-[#050A18]/30 to-transparent" />
 
               {/* Content */}
               <div className="absolute inset-0 p-4 flex flex-col justify-end">
