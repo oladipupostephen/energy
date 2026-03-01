@@ -189,26 +189,41 @@ export default function AdminSidebar({
 
         {/* ── Collapse toggle ── */}
         <div className="shrink-0 border-t border-white/6 p-3">
-          <button
-            onClick={onToggle}
-            className={[
-              "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl",
-              "text-slate-500 hover:text-slate-300 hover:bg-white/5",
-              "transition-all duration-150",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50",
-              collapsed ? "justify-center" : "",
-            ].join(" ")}
-            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}>
-            <span
-              className={`transition-transform duration-300 ${collapsed ? "rotate-180" : ""}`}>
+          {collapsed ? (
+            /* Collapsed: amber highlighted button so it is easy to find */
+            <button
+              onClick={onToggle}
+              title="Expand sidebar"
+              aria-label="Expand sidebar"
+              className={[
+                "w-full flex items-center justify-center py-2.5 rounded-xl",
+                "bg-amber-400/15 border border-amber-400/30",
+                "text-amber-400 hover:bg-amber-400/25 hover:border-amber-400/50",
+                "transition-all duration-150",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50",
+              ].join(" ")}>
+              {/* Arrow points RIGHT = expand */}
+              <span className="rotate-180">
+                <CollapseIcon />
+              </span>
+            </button>
+          ) : (
+            /* Expanded: subtle row with text label */
+            <button
+              onClick={onToggle}
+              aria-label="Collapse sidebar"
+              className={[
+                "w-full flex items-center gap-3 px-3 py-2.5 rounded-xl",
+                "text-slate-500 hover:text-slate-300 hover:bg-white/5",
+                "transition-all duration-150",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400/50",
+              ].join(" ")}>
               <CollapseIcon />
-            </span>
-            {!collapsed && (
               <span className="text-xs font-semibold whitespace-nowrap">
                 Collapse sidebar
               </span>
-            )}
-          </button>
+            </button>
+          )}
         </div>
       </aside>
     </>
