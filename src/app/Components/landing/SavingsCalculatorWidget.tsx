@@ -29,8 +29,8 @@ export default function SavingsCalculatorWidget() {
   return (
     <section className="bg-[#0A1628] py-24 px-6 lg:px-12 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-amber-500/5 blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-blue-500/5 blur-[80px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-150 h-150 rounded-full bg-amber-500/5 blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-100 h-100 rounded-full bg-blue-500/5 blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -42,7 +42,7 @@ export default function SavingsCalculatorWidget() {
             </div>
             <h2 className="font-display font-black text-4xl md:text-5xl text-white leading-tight tracking-tight">
               How Much Could
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-300">
+              <span className="block text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-amber-300">
                 You Save?
               </span>
             </h2>
